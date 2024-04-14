@@ -261,9 +261,10 @@ public class BankRunScript extends Script {
             sleepUntil(() -> Rs2Widget.hasWidget("click here to continue"));
             Rs2Widget.clickWidget("click here to continue");
 
-            sleep(9000, 12000);
-            sleepUntil(() -> Rs2GameObject.findObject("Gangplank") != null);
-            Rs2GameObject.interact("Gangplank", "Cross");
+
+            sleepUntil(() -> Rs2GameObject.findObjectById(2082) != null);
+            //Rs2GameObject.interact("Gangplank", "Cross");
+            Rs2GameObject.interact(2082);
 
             sleep(2000, 3000);
 

@@ -36,7 +36,8 @@ public class LootScript extends Script {
                 if (item.equalsIgnoreCase(itemComposition.getName()) && distance < 14) {
                     Rs2GroundItem.interact(item, "Take");
                     Microbot.pauseAllScripts = true;
-                    sleepUntilOnClientThread(() -> Microbot.getClient().getLocalPlayer().getWorldLocation() == itemSpawned.getTile().getWorldLocation(), 8000);
+                    sleepUntilOnClientThread(() -> Microbot.getClient().getLocalPlayer().getWorldLocation() == itemSpawned.getTile().getWorldLocation(), 4000);
+                    sleep(2000, 3000);
                     Microbot.pauseAllScripts = false;
                     if (item.equalsIgnoreCase("Jogre bones")) {
                         BonesCollected += 1;
