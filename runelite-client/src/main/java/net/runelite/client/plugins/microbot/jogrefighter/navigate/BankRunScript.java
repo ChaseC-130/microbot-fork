@@ -262,15 +262,18 @@ public class BankRunScript extends Script {
             Rs2Widget.clickWidget("click here to continue");
 
 
-            sleepUntil(() -> Rs2GameObject.findObjectById(2082) != null);
-            //Rs2GameObject.interact("Gangplank", "Cross");
-            Rs2GameObject.interact(2082);
+            sleep(9000, 12000);
+            WorldPoint playerLocation = getPlayerLocation();
 
-            sleep(2000, 3000);
+            if (playerLocation.distanceTo(PORT_SARIM_DOCKS) > 50) {
+                sleepUntil(() -> Rs2GameObject.findObject("Gangplank") != null);
+                Rs2GameObject.interact("Gangplank", "Cross");
 
+                sleep(2000, 3000);
 
+                status = Status.NAVIGATE_TO_FENCE;
+            }
 
-            status = Status.NAVIGATE_TO_FENCE;
         }
     }
 
